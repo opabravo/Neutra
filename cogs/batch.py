@@ -566,7 +566,7 @@ class Batch(commands.Cog):
     @decorators.event_check(lambda s, c, u, w: not u.bot)
     async def on_typing(self, channel, user, when):
         async with self.batch_lock:
-            self.tracker_batch[user.id] = (time.time(), "typing")
+            self.tracker_batch[user.id] = (time.time(), f"typing : At `#{channel.name} ({channel.id})`")
 
     @commands.Cog.listener()
     @decorators.wait_until_ready()
